@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+ 
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -15,7 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild('username') username;
+  @ViewChild('password') password;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  }
+
+  login() {
+    const alert = this.alertCtrl.create({
+      title: 'Hey ' + this.username.value + ', You logged in correct!',
+      subTitle: 'Hooray',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   ionViewDidLoad() {

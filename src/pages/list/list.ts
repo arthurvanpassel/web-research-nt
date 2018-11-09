@@ -26,6 +26,10 @@ export class ListPage {
     }
   }
 
+  popThis() {
+    this.navCtrl.pop();
+  }
+
   itemTapped(event, item) {
     this.navCtrl.push(ItemDetailsPage, {
       item: item
