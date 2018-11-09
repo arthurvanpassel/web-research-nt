@@ -26,17 +26,30 @@ export class RegisterPage {
   }
 
   register() {
-    if (this.password.value == this.cpassword.value) {
-      console.log("You just registered with " + this.username.value +", with password "+this.password.value);
-    }
-    else {
+    if (this.username.value == '' && this.password.value == '') {
       const alert = this.alertCtrl.create({
         title: 'Error!',
-        subTitle: 'Your password wasnt correct!',
+        subTitle: 'You need to fill in the fields!',
         buttons: ['OK']
       });
       alert.present();
     }
+    else {
+      if (this.password.value == this.cpassword.value) {
+        console.log("You just registered with " + this.username.value +", with password "+this.password.value);
+  
+        this.navCtrl.pop();
+      }
+      else {
+        const alert = this.alertCtrl.create({
+          title: 'Error!',
+          subTitle: 'Your password wasnt correct!',
+          buttons: ['OK']
+        });
+        alert.present();
+      }
+    }
+    
   }
 
 }
