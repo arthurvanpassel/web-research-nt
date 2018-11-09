@@ -9,6 +9,9 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { FirstPage } from '../pages/first/first';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,6 +34,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: TabsPage },
       { title: 'List', component: ListPage },
+      { title: 'First', component: FirstPage },
     ];
   }
 
@@ -39,5 +43,6 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+    
   }
 }
